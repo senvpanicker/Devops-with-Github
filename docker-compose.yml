@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:  
+   services1:
+    image: ${docker_registry}service1
+    container_name: dotnetsampleapp
+    build:
+      context: ./src/Service1      
+      dockerfile: Dockerfile 
+    ports:
+        - target: 80
+          published: 8080
+          protocol: http
+          mode: host
+   services2:
+    image: ${docker_registry}service2
+    container_name: dotnetsampleapp2
+    build:
+      context: ./src/Service2      
+      dockerfile: Dockerfile
+    ports:
+        - target: 81
+          published: 8080
+          protocol: http
+          mode: host
+       
+     
+      
